@@ -9,7 +9,6 @@ const email = document.querySelector("#email");
 const phoneNumber = document.querySelector("#phoneNumber");
 
 const buttons = document.querySelectorAll(".navigation");
-
 let submit = false;
 
 
@@ -102,6 +101,7 @@ buttons.forEach((button) => {
     if(name && surname && email && phoneNumber){
         document.location.href = "../Skills/skills.html"
     }
-  });
+
+  })
 });
 

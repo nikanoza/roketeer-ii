@@ -129,8 +129,7 @@ body {
 }
 
 .error-surname{
-  margin-left: -45px;
-
+  margin-left: -50px;
 }
 
 
@@ -140,4 +139,8 @@ body {
 
 .error-number{
   margin-left: -180px;
+}
+
+.page-nav-circles .active{
+  background-color: hsla(8, 99%, 56%, 1);
 }
