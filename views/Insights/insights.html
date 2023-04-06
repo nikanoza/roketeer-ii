@@ -11,24 +11,29 @@
     <main class="main-container">
       <div class="container-left">
         <h1 class="title">What about you?</h1>
+
         <div class="survay-section">
           <div class="radio-form">
             <p>Would you attend Devtalks and maybe also organize your own?</p>
-            <input type="radio" name="radio" id="yes" />
+            <input type="radio" name="radio" id="yesRadioButton" />
             <label for="yes">Yes</label><br />
-            <input type="radio" name="radio" id="no" />
+            <input type="radio" name="radio" id="noRadioButton" />
             <label for="no">No</label><br />
           </div>
 
-          <div class="text-area-one">
-            <p>What would you speak about at Devtalk?</p>
-            <textarea name="text-area-one" id="comentSectionOne" cols="65" rows="8">I would...</textarea>
+          <div class="container" id="container" style="display: none;">
+            <div class="text-area-one">
+                <p>What would you speak about at Devtalk?</p>
+                <textarea name="text-area-one" id="comentSectionOne" cols="65" rows="8">I would...</textarea>
+              </div>
+              <div class="text-area-two">
+                <p>What would you speak about at Devtalk?</p>
+                <textarea name="text-area-one" id="comentSectionTwo" cols="65" rows="8">I...</textarea>
+              </div>
           </div>
-          <div class="text-area-two">
-            <p>What would you speak about at Devtalk?</p>
-            <textarea name="text-area-one" id="comentSectionTwo" cols="65" rows="8">I would...</textarea>
-  
-          </div>
+
+
+
         </div>
         <nav class="navigation">
             <span><a href="#">
@@ -64,5 +69,6 @@
         </p>
       </div>
     </main>
+    <script src="./insights.js"></script>
   </body>
 </html>
