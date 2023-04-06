@@ -10,9 +10,10 @@
   <body>
     <main class="main-container">
       <div class="container-left">
-        <h1 class="title">What about you?</h1>
 
         <div class="survay-section">
+        <h1 class="title">What about you?</h1>
+
             <form id="formId" onsubmit="validateForm(event)">
           <div class="radio-form" >
             <p>Would you attend Devtalks and maybe also organize your own?</p>
@@ -27,25 +28,27 @@
             <div class="text-area-one">
                 <p>What would you speak about at Devtalk?</p>
                 <textarea name="text-area-one" id="comentSectionOne" cols="65" rows="8">I would...</textarea>
-              </div>
+                <p class="text-area-one-error"></p>
+            </div>
               <div class="text-area-two">
                 <p>What would you speak about at Devtalk?</p>
-                <textarea name="text-area-one" id="comentSectionTwo" cols="65" rows="8">I...</textarea>
-              </div>
+                <textarea name="text-area-two" id="comentSectionTwo" cols="65" rows="8">I...</textarea>
+                <p class="text-area-two-error"></p>
+              
+            </div>
           </div>
+
           <nav class="navigation">
               <span><a href="#">
                   <img src="/assets/previous.png" alt="" />
               </a>
               </span>
-    
               <div class="page-nav-circles">
                 <a class="active" href="#" ><span></span></a>
                 <a class="active" href="#"><span ></span></a>
                 <a class="active" href="#"><span></span></a>
                 <a class="active" href="#"><span></span></a>
                 <a href="#"><span></span></a>
-  
               </div >
               <button class="next-btn">
                 <img src="/assets/next.png" alt="" />
@@ -56,6 +59,7 @@
 
         </div>
       </div>
+
       <div class="container-right">
         <h2>Redberrian Insights</h2>
         <p>

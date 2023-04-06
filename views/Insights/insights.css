@@ -21,6 +21,7 @@ body {
 
 .container-left {
   background-color: #ffffff;
+  height: 100%;
 }
 
 .container-right {
@@ -28,14 +29,20 @@ body {
   justify-content: center;
 }
 
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
 .title {
-  width: 80%;
   color: hsla(8, 99%, 56%, 1);
   font-family: "Rowdies", cursive;
   font-size: 64px;
   font-weight: 400;
   margin-top: 130px;
-  margin-left: 100px;
+  align-items: center;
   text-align: center;
 }
 
@@ -62,10 +69,11 @@ body {
 .survay-section {
   display: flex;
   flex-direction: column;
-  padding-top: 127px;
-  padding-left: 220px;
 }
 
+.radio-form{
+  margin-top: 127px;
+}
 .radio-form,
 .text-area-one,
 .text-area-two {
@@ -94,9 +102,13 @@ body {
 .navigation,
 .page-nav-circles {
   display: flex;
-  justify-content: center}
+  justify-content: center;
+  align-items: flex-end;
 
-.navigation span {
+
+}
+
+.navigation span{
   margin-left: 15px;
 }
 
@@ -110,10 +122,8 @@ body {
   background: rgb(247, 221, 217);
 }
 .navigation {
-
-  margin-left: -220px;
-  padding-top: 175px;
   background-color: #ffffff;
+
 }
 
 .page-nav-circles .active {
@@ -134,3 +144,4 @@ body {
   border: none;
   background-color: white;
 }
+
