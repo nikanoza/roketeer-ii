@@ -94,13 +94,14 @@ body {
 .navigation,
 .page-nav-circles {
   display: flex;
-}
+  justify-content: center}
 
 .navigation span {
   margin-left: 15px;
 }
 
-.page-nav-circles a {
+.page-nav-circles a,
+.next-btn {
   height: 19px;
   width: 19px;
   border-radius: 50%;
@@ -109,14 +110,27 @@ body {
   background: rgb(247, 221, 217);
 }
 .navigation {
-  /* position: absolute; */
-  /* position: fixed; */
-  margin-top: 175px;
-  justify-content: center;
+
+  margin-left: -220px;
+  padding-top: 175px;
   background-color: #ffffff;
 }
 
-
 .page-nav-circles .active {
   background-color: hsla(8, 99%, 56%, 1);
+}
+
+.error{
+  color: red;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13.41px;
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.next-btn{
+  border: none;
+  background-color: white;
 }
