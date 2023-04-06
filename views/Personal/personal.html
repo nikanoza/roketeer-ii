@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Information</title>
+    <link rel="stylesheet" href="personal.css" />
+  </head>
+  <body>
+    <main class="main-container">
+
+      <div class="container-left">
+        <h1 class="title">Hey, Rocketeer, what are your coordinates?</h1>
+
+        <div class="input-container">
+          <input
+            type="text"
+            name="first-name"
+            id="firstName"
+            placeholder="First Name"
+          />
+          <div class="error">
+              <p class="error-name" id="errorName"></p>
+
+          </div>
+
+
+          <input
+            type="text"
+            name="last-name"
+            id="lastName"
+            placeholder="Last Name"
+            />
+            <div class="error">
+                <p class="error-surname" id="errorSurname"></p>
+            </div>
+            
+
+          <input type="email" name="email" id="email" placeholder="E Mail" />
+
+          <div class="error">
+              <p class="error-email" id="errorEmail"></p>
+          </div>
+
+          <input
+            type="number"
+            name="phone-number"
+            id="phoneNumber"
+            placeholder="+995 5_ _ _ _"
+          />
+          <div class="error">
+            <p class="error-number" id="errorNumber"></p>
+        </div>
+        </div>
+
+        <nav class="navigation">
+          <span><a href="#">
+              <img src="/assets/previous.png" alt="" />
+          </a>
+          </span>
+
+          <div class="page-nav-circles">
+            <a class="active" href="#" ><span></span></a>
+            <a href="#"><span ></span></a>
+            <a href="#"><span></span></a>
+            <a href="#"><span></span></a>
+          </div>
+          <span>
+            <img src="/assets/next.png" alt="" />
+          </span>
+        </nav>
+      </div>
+      <div class="container-right">
+        <h2>Redberry Origins</h2>
+        <p>
+          You watch “What? Where? When?” Yeah. Our founders used to play it.
+          That’s where they got a question about a famous American author and
+          screenwriter Ray Bradbury. Albeit, our CEO Gaga Darsalia forgot the
+          exact name and he answered Ray Redberry. And at that moment, a name
+          for a yet to be born company was inspired - Redberry 😇
+        </p>
+      </div>
+    </main>
+    <script src="./personal.js"></script>
+  </body>
+
+</html>

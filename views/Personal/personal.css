@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Rowdies&display=swap");
+
+/* @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rowdies&display=swap'); */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  /* display: grid; */
+  max-width: 100%;
+  /* background: radial-gradient(50% 50% at 50% 50%, #0C0D0E 0%, #151718 73.44%); */
+}
+
+.main-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container-left {
+  background-color: #ffffff;
+}
+
+.container-right {
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  justify-content: center;
+}
+
+.title {
+  width: 80%;
+  color: hsla(8, 99%, 56%, 1);
+  font-family: "Rowdies", cursive;
+  font-size: 64px;
+  font-weight: 400;
+  margin-top: 130px;
+  margin-left: 105px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 130px;
+}
+
+.input-container input {
+  height: 54px;
+  width: 455px;
+  /* margin-top: 35px; */
+  padding-left: 55px;
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ::placeholder {
+} */
+
+.navigation,
+.page-nav-circles {
+  display: flex;
+}
+
+.navigation span {
+  margin-left: 15px;
+}
+
+.page-nav-circles a {
+  height: 19px;
+  width: 19px;
+  border: 1px solid hsla(8, 99%, 56%, 1);
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 1px;
+}
+
+.navigation {
+  margin-top: 175px;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.container-right h2 {
+  color: hsla(8, 99%, 56%, 1);
+  font-family: "Rowdies", cursive;
+  font-size: 64px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.container-right p {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 48px;
+  padding-left: 190px;
+  width: 90%;
+  margin-top: 160px;
+  color: hsla(0, 0%, 100%, 1);
+}
+
+.error-name,
+.error-surname,
+.error-email,
+.error-number{
+  color: red;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13.41px;
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+}
+
+.error{
+  height: 20px;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+.error-name{
+  margin-left: -165px;
+}
+
+.error-surname{
+  margin-left: -50px;
+}
+
+
+.error-email{
+  margin-left: -180px;
+}
+
+.error-number{
+  margin-left: -180px;
+}
+
+.page-nav-circles .active{
+  background-color: hsla(8, 99%, 56%, 1);
+}
