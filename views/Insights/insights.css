@@ -29,13 +29,6 @@ body {
   justify-content: center;
 }
 
-
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
 .title {
   color: hsla(8, 99%, 56%, 1);
   font-family: "Rowdies", cursive;
@@ -71,7 +64,7 @@ form{
   flex-direction: column;
 }
 
-.radio-form{
+.radio-form {
   margin-top: 127px;
 }
 .radio-form,
@@ -99,16 +92,18 @@ form{
   margin-top: 50px;
 }
 
+.navigation {
+  background-color: #ffffff;
+}
+
 .navigation,
 .page-nav-circles {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-
-
 }
 
-.navigation span{
+.navigation span {
   margin-left: 15px;
 }
 
@@ -121,16 +116,12 @@ form{
   margin-top: 1px;
   background: rgb(247, 221, 217);
 }
-.navigation {
-  background-color: #ffffff;
-
-}
 
 .page-nav-circles .active {
   background-color: hsla(8, 99%, 56%, 1);
 }
 
-.error{
+.error {
   color: red;
   font-size: 11px;
   font-weight: 400;
@@ -140,8 +131,19 @@ form{
   margin-top: 10px;
 }
 
-.next-btn{
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navigation {
+  position: fixed;
+  bottom: 200px;
+  left: 350px;
+  align-items: center;
+}
+
+.next-btn {
   border: none;
   background-color: white;
 }
-

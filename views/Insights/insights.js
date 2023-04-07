@@ -9,16 +9,16 @@ const container = document.querySelector("#container");
 const buttons = document.querySelectorAll(".navigation");
 const form = document.querySelector("#formId");
 
-
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
-console.log(textAreaOne)
+console.log(textAreaOne);
 
 textAreaOne.addEventListener("click", () => {
-    textAreaOne.textContent = "";
-
-})
-
+  textAreaOne.textContent = "";
+});
+textAreaTwo.addEventListener("click", () => {
+  textAreaTwo.textContent = "";
+});
 
 yesRadioButton.addEventListener("change", () => {
   if (yesRadioButton.checked) {
@@ -59,32 +59,29 @@ function validateForm(event) {
 }
 
 nextButton.addEventListener("click", () => {
-    const textOne = textOneCheck();
-    const textTwo = textTwoCheck();
+  const textOne = textOneCheck();
+  const textTwo = textTwoCheck();
 
   if (yesRadioButton.checked && textOne && textTwo) {
     document.location.href = "../Submit/submit.html";
   }
-  if(noRadioButton.checked){
+  if (noRadioButton.checked) {
     document.location.href = "../Submit/submit.html";
   }
-
 });
 
-function textOneCheck(){
-    if(textAreaOne === ""){
-        errorTextAreaOne.textContent = "Please express yout thoughts";
-      return false;
-
-      }
-      return true;
+function textOneCheck() {
+  if (textAreaOne === "") {
+    errorTextAreaOne.textContent = "Please express yout thoughts";
+    return false;
+  }
+  return true;
 }
 
-function textTwoCheck(){
-    if(textAreaTwo === ""){
-        errorTextAreaTwo.textContent = "Please express yout thoughts";
-      return false;
-
-      }
-      return true;
+function textTwoCheck() {
+  if (textAreaTwo === "") {
+    errorTextAreaTwo.textContent = "Please express yout thoughts";
+    return false;
+  }
+  return true;
 }

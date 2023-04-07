@@ -10,54 +10,74 @@
   <body>
     <main class="main-container">
       <div class="container-left">
-
         <div class="survay-section">
-        <h1 class="title">What about you?</h1>
+          <h1 class="title">What about you?</h1>
 
-            <form id="formId" onsubmit="validateForm(event)">
-          <div class="radio-form" >
-            <p>Would you attend Devtalks and maybe also organize your own?</p>
-            <input type="radio" name="will_organize_devtalk" id="yesRadioButton" value="yes" />
-            <label for="yes">Yes</label><br />
-            <input type="radio" name="will_organize_devtalk" id="noRadioButton" value="no" />
-            <label for="no">No</label><br />
-            <p class="error" id="error-msg"></p>
-          </div>
-
-          <div class="container" id="container" style="display: none;">
-            <div class="text-area-one">
-                <p>What would you speak about at Devtalk?</p>
-                <textarea name="text-area-one" id="comentSectionOne" cols="65" rows="8">I would...</textarea>
-                <p class="text-area-one-error"></p>
+          <form id="formId" onsubmit="validateForm(event)">
+            <div class="radio-form">
+              <p>Would you attend Devtalks and maybe also organize your own?</p>
+              <input
+                type="radio"
+                name="will_organize_devtalk"
+                id="yesRadioButton"
+                value="yes"
+              />
+              <label for="yes">Yes</label><br />
+              <input
+                type="radio"
+                name="will_organize_devtalk"
+                id="noRadioButton"
+                value="no"
+              />
+              <label for="no">No</label><br />
+              <p class="error" id="error-msg"></p>
             </div>
+
+            <div class="container" id="container" style="display: none">
+              <div class="text-area-one">
+                <p>What would you speak about at Devtalk?</p>
+                <textarea
+                  name="text-area-one"
+                  id="comentSectionOne"
+                  cols="65"
+                  rows="8"
+                >
+I would...</textarea
+                >
+                <p class="text-area-one-error"></p>
+              </div>
               <div class="text-area-two">
                 <p>What would you speak about at Devtalk?</p>
-                <textarea name="text-area-two" id="comentSectionTwo" cols="65" rows="8">I...</textarea>
+                <textarea
+                  name="text-area-two"
+                  id="comentSectionTwo"
+                  cols="65"
+                  rows="8"
+                >
+I...</textarea
+                >
                 <p class="text-area-two-error"></p>
-              
+              </div>
             </div>
-          </div>
-
-          <nav class="navigation">
-              <span><a href="#">
-                  <img src="/assets/previous.png" alt="" />
-              </a>
-              </span>
-              <div class="page-nav-circles">
-                <a class="active" href="#" ><span></span></a>
-                <a class="active" href="#"><span ></span></a>
-                <a class="active" href="#"><span></span></a>
-                <a class="active" href="#"><span></span></a>
-                <a href="#"><span></span></a>
-              </div >
-              <button class="next-btn">
-                <img src="/assets/next.png" alt="" />
-              </button>
-            </nav>
-        </form>
-
-
+          </form>
         </div>
+        <nav class="navigation">
+          <span
+            ><a href="#">
+              <img src="/assets/previous.png" alt="" />
+            </a>
+          </span>
+          <div class="page-nav-circles">
+            <a class="active" href="#"><span></span></a>
+            <a class="active" href="#"><span></span></a>
+            <a class="active" href="#"><span></span></a>
+            <a class="active" href="#"><span></span></a>
+            <a href="#"><span></span></a>
+          </div>
+          <button class="next-btn">
+            <img src="/assets/next.png" alt="" />
+          </button>
+        </nav>
       </div>
 
       <div class="container-right">
