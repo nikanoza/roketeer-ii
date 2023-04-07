@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+.main{
+    display: flex;
+}
+.firstDiv{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 172px;
+    
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    width: 398px;
+    height: 54px;
+    border: 1px solid #525557;
+    margin-bottom: 31px;
+    padding-left: 57px;
+}
+input[type="number"]::placeholder{
+font-style: italic;
+}
+.userSkills{
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#skills {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 455px;
+    height: 54px;
+    border: 1px solid #525557;
+    background-image: url('/views/Skills/Vector.png');
+    background-repeat: no-repeat;
+    background-position: 420px;
+    padding: 17px 161px 13px 57px;
+    margin-bottom: 31px;
+    color: #454545;
+    font-style: italic;
+  }
+.errors{
+    color: red;
+    align-self: self-start;
+}
+
+
+.submitButton{
+    background-color: rgba(254, 59, 31, 1);
+    padding: 7px 4px 7px 4px;
+    color: rgba(255, 255, 255, 1);
+    align-self: self-end;
+    font-size: 12px;
+    border: 0;  
+    margin-bottom: 56px;
+}
+.firstDiv h1{
+    font-family: 'Rowdies';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FE3B1F;
+    margin: 72px 40px 119px 85px;
+}
+.secondDiv{
+    width: 50%;
+    background-color: #0C0D0E;
+    min-height: 100vh;
+}
+.head{
+    font-family: 'Rowdies';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    color: #FE3B1F;
+    margin-top: 72px;
+    margin-bottom: 119px;
+    margin-left: 176px;
+}
+.text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 200%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin: 0 126px 0 176px;
+}
+.userSkill{
+    border: 1px solid #525557;;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 17px;
+    width: 455px;
+    height: 54px;
+}
+.userSkill p{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+}
+.dots{
+    margin-top: auto;
+    display: flex;
+    flex-direction: row nowrap;
+    gap: 15px;
+    
+}
+.dot{
+    width: 19px;
+    height: 19px;
+    background-color: rgba(254, 59, 31, 0.1);
+    border-radius: 50%;
+
+}
+.dotColored{
+    width: 19px;
+    height: 19px;
+    background-color: rgba(254, 59, 31, 1);
+    border-radius: 50%;
+}
