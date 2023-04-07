@@ -60,3 +60,29 @@ function addSkill() {
       displayItems();
     }
   }
+  function displayItems() {
+    skillsDiv.innerHTML = "";
+  
+    for (let i = 0; i < userSkills.length; i++) {
+      const skillId = userSkills[i].id;
+      const skillExperience = userSkills[i].experience;
+  
+      const skill = skills.find((skill) => skill.id === skillId);
+  
+      const createSkillDiv = document.createElement("div");
+      createSkillDiv.classList.add("userSkill");
+      skillsDiv.appendChild(createSkillDiv);
+      const createP = document.createElement("p");
+      createP.textContent = skill.title;
+      createSkillDiv.appendChild(createP);
+      const createP2 = document.createElement("p");
+      createP2.textContent = "Years of Experience: " + skillExperience;
+      createSkillDiv.appendChild(createP2);
+      const createImg = document.createElement("img");
+      createImg.setAttribute("src", "./Remove.png");
+      createImg.addEventListener("click", function () {
+        remove(skill.id);
+      });
+      createSkillDiv.appendChild(createImg);
+    }
+  }
