@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="skills.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="firstDiv">
+            <h1>Tell us about your skills</h1>
+            <div class="inputs">
+                <select name="skills" id="skills">
+                    <option class = "skill"value="" disabled selected>Skills</option>
+                </select>
+                <p class ="errors"id="skillError"></p>
+                <input placeholder ="Experience Duration in Years" type="number" name="" id="numberInput">
+                <p class ="errors" id="inputError"></p>
+                <button onclick="addSkill();" class="submitButton">Programming Language</button>
+                <div class="userSkills">
+                </div>
+            </div>
+            <div class="dots">
+                <img src="/assets/previous.png" alt="">
+                <div class="dotColored"></div>
+                <div class="dotColored"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <img src="/assets/next.png" alt="">
+            </div>
+        </div>
+        <div class="secondDiv">
+            <h1 class="head">A bit about our battles</h1>
+            <h1 class="text">As we said, Redberry has been on the field for quite some time now, and we have touched and embraced a variety of programming languages, technologies, philosophies, and frameworks. We are battle-tested in PHP Laravel Stack with Vue.js, refined in React, and allies with Serverside technologies like Docker and Kubernetes, and now we have set foot in the web3 industry.</h1>
+        </div>
+    </div>
+    <script src="./skills.js"></script>
+</body>
+</html>
