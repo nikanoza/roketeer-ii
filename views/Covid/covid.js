@@ -94,3 +94,36 @@ navigation.addEventListener("click", function () {
     vaccineDate.classList.add("error-date");
   }
 });
+
+const workRadioButtons = document.getElementsByName('work');
+const covidContactRadioButtons = document.getElementsByName('covid');
+const covidDateInput = document.getElementById('covid-input');
+const vaccinatedRadioButtons = document.getElementsByName('vaccine');
+const vaccineDateInput = document.getElementById('vaccine-input');
+
+const form = document.querySelector('.form-container');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const formValues = {
+    "work_preference": getSelectedRadioButtonValue(workRadioButtons),
+    "had_covid": getSelectedRadioButtonValue(covidContactRadioButtons),
+    "had_covid_at": covidDateInput.value,
+    "vaccinated": getSelectedRadioButtonValue(vaccinatedRadioButtons),
+    "vaccinated_at": vaccineDateInput.value
+  };
+  
+  console.log(formValues);
+});
+
+function getSelectedRadioButtonValue(radioButtons) {
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      return radioButton.value;
+    }
+  }
+  
+  return null;
+}
+
