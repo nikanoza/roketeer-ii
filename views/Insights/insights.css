@@ -22,6 +22,8 @@ body {
 .container-left {
   background-color: #ffffff;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .container-right {
@@ -92,10 +94,6 @@ body {
   margin-top: 50px;
 }
 
-.navigation {
-  background-color: #ffffff;
-}
-
 .navigation,
 .page-nav-circles {
   display: flex;
@@ -107,6 +105,12 @@ body {
   margin-left: 15px;
 }
 
+.navigation {
+  background-color: #ffffff;
+  align-items: center;
+  margin-top: auto;
+  padding-bottom: 50px;
+}
 .page-nav-circles a,
 .next-btn {
   height: 19px;
@@ -136,14 +140,13 @@ form {
   flex-direction: column;
   align-items: center;
 }
-.navigation {
-  position: fixed;
-  bottom: 200px;
-  left: 350px;
-  align-items: center;
-}
 
 .next-btn {
   border: none;
   background-color: white;
+}
+
+#comentSectionOne,
+#comentSectionTwo {
+  resize: none;
 }

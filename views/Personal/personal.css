@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Rowdies&display=swap");
-
-/* @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rowdies&display=swap'); */
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +9,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  /* display: grid; */
   max-width: 100%;
-  /* background: radial-gradient(50% 50% at 50% 50%, #0C0D0E 0%, #151718 73.44%); */
 }
 
 .main-container {
@@ -46,22 +41,18 @@ body {
 
 .input-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  margin-left: 200px;
   margin-top: 130px;
 }
 
 .input-container input {
   height: 54px;
   width: 455px;
-  /* margin-top: 35px; */
   padding-left: 55px;
   font-style: italic;
   font-family: "Montserrat", sans-serif;
 }
-
-/* ::placeholder {
-} */
 
 .navigation,
 .page-nav-circles {
@@ -110,7 +101,7 @@ body {
 .error-name,
 .error-surname,
 .error-email,
-.error-number{
+.error-number {
   color: red;
   font-size: 11px;
   font-weight: 400;
@@ -119,28 +110,14 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.error{
+.error {
   height: 20px;
   width: fit-content;
-  margin-bottom: 15px;
-}
-.error-name{
-  margin-left: -165px;
-}
-
-.error-surname{
-  margin-left: -50px;
+  margin-top: 5px;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }
 
-
-.error-email{
-  margin-left: -180px;
-}
-
-.error-number{
-  margin-left: -180px;
-}
-
-.page-nav-circles .active{
+.page-nav-circles .active {
   background-color: hsla(8, 99%, 56%, 1);
 }
