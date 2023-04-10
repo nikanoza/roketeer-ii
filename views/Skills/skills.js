@@ -18,6 +18,11 @@ async function getSkills() {
   select.innerHTML += options.join("Skills");
 }
 getSkills();
+function remove(id) {
+  const skillIndex = userSkills.findIndex((skill) => skill.id === id);
+  userSkills.splice(skillIndex, 1);
+  displayItems();
+}
 function addSkill() {
     const skillId = parseInt(select.options[select.selectedIndex].id);
     const existingSkill = userSkills.find((skill) => skill.id === skillId);
@@ -79,7 +84,7 @@ function addSkill() {
       createP2.textContent = "Years of Experience: " + skillExperience;
       createSkillDiv.appendChild(createP2);
       const createImg = document.createElement("img");
-      createImg.setAttribute("src", "./Remove.png");
+      createImg.setAttribute("src", "../../assets/Remove.png");
       createImg.addEventListener("click", function () {
         remove(skill.id);
       });
