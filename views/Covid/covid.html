@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="covid.css" />
+  </head>
+  <body>
+    <div class="left">
+      <h1 class="page-title">Covid Stuff</h1>
+
+      <div class="form-container">
+        <form class="radio-button-wrapper" id="work">
+          <p class="question">How would you prefer to work?</p>
+
+          <div>
+            <input type="radio" id="office" name="work" value="office" />
+            <label for="office">From Sairme Office</label>
+          </div>
+
+          <div>
+            <input type="radio" id="home" name="work" value="home" />
+            <label for="home">From Home</label>
+          </div>
+
+          <div>
+            <input type="radio" id="hybrid" name="work" value="hybrid" />
+            <label for = "hybrid">Hybrid</label>
+          </div>
+          <span id="work-error"><i>* Required</i></span>
+        </form>
+
+        <form class="radio-button-wrapper" id="covid-contact">
+          <p class="question">Did you contact covid 19? :(</p>
+
+          <div>
+            <input type="radio" id="covid_yes" name="covid" value="yes"  />
+            <label for="covid_yes">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="covid_no" name="covid" value="no"  />
+            <label for="covid_no">No</label>
+          </div>
+          <span id="work-error"><i>* Required</i></span>
+        </form>
+
+        <div class="radio-button-wrapper" id="covid-date" >
+          <p class="question">When?</p>
+
+          <input type="date" placeholder="Date" id="covid-input" />
+        </div>
+
+        <form class="radio-button-wrapper" id="vaccinated">
+          <p class="question">Have you been vaccinated?</p>
+
+          <div>
+            <input type="radio" id="vaccine_yes"  name="vaccine" value="yes" />
+            <label for="vaccine_yes">Yes</label>
+          </div>
+
+          <div>
+            <input type="radio" id="vaccine_no" name="vaccine" value="no"  />
+            <label for="vaccine_no">No</label>
+          </div>
+          <span id="work-error"><i>* Required</i></span>
+        </form>
+        <div clas="radio-button-wrapper" id="vaccine-date">
+          <p class="question">When did you get your last covid vaccine?</p>
+
+          <input type="date" placeholder="Date"  id="vaccine-input"/>
+        </div>
+      </div>
+  
+      <div class="step-buttons">
+        <a href="/views/Skills/skills.html">
+          <img src="/roketeer-ii/assets/previous.png" alt="Prev icon" />
+        </a>
+
+        <div class="pages pages-active"></div>
+        <div class="pages pages-active"></div>
+        <div class="pages"></div>
+        <div class="pages"></div>
+        <div class="pages"></div>
+
+        <a id="button" >
+          <img src="/roketeer-ii/assets/next.png" alt="Next icon" />
+        </a>
+      </div>
+    </div>
+    <div class="right">
+      <h1 class="page-title">Redberry Covid Policies</h1>
+
+      <p>
+        As this infamous pandemic took over the world, we adjusted our working
+        practices so that our employees can be as safe and comfortable as
+        possible. We have a hybrid work environment, so you can either work from
+        home or visit our lovely office on Sairme Street. If it was up to us, we
+        would love you to see us in the office because we think face-to-face
+        communications > Zoom meetings. Both on the fun and productivity scales.
+      </p>
+    </div>
+
+    <script src="covid.js"></script>
+  </body>
+</html>
