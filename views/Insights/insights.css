@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Rowdies&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  max-width: 100%;
+}
+
+.main-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container-left {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.container-right {
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  justify-content: center;
+}
+
+.title {
+  color: hsla(8, 99%, 56%, 1);
+  font-family: "Rowdies", cursive;
+  font-size: 64px;
+  font-weight: 400;
+  margin-top: 130px;
+  align-items: center;
+  text-align: center;
+}
+
+.container-right h2 {
+  color: hsla(8, 99%, 56%, 1);
+  font-family: "Rowdies", cursive;
+  font-size: 64px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.container-right p {
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 48px;
+  padding-left: 190px;
+  width: 90%;
+  margin-top: 160px;
+  color: hsla(0, 0%, 100%, 1);
+}
+
+.survay-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-form {
+  margin-top: 127px;
+}
+.radio-form,
+.text-area-one,
+.text-area-two {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.radio-form input {
+  margin-top: 21px;
+}
+
+#comentSectionOne,
+#comentSectionTwo {
+  margin-top: 20px;
+}
+
+.text-area-one,
+.text-area-two {
+  margin-top: 50px;
+}
+
+.navigation {
+  background-color: #ffffff;
+}
+
+.navigation,
+.page-nav-circles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.navigation span {
+  margin-left: 15px;
+}
+
+.page-nav-circles a,
+.next-btn {
+  height: 19px;
+  width: 19px;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 1px;
+  background: rgb(247, 221, 217);
+}
+
+.page-nav-circles .active {
+  background-color: hsla(8, 99%, 56%, 1);
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13.41px;
+  font-style: italic;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navigation {
+  position: fixed;
+  bottom: 200px;
+  left: 350px;
+  align-items: center;
+}
+
+.next-btn {
+  border: none;
+  background-color: white;
+}
