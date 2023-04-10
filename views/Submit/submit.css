@@ -10,6 +10,10 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.main{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 button{
@@ -31,4 +35,13 @@ button a{
     font-size: 28px;
     text-decoration: underline;
     font-family: 'Montserrat', sans-serif;
+}
+.hidde{
+    display: none;
+}
+.thanks{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 96px;
+    color: rgba(254, 59, 31, 1);
+    text-align: center;
 }
