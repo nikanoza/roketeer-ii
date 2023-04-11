@@ -11,7 +11,12 @@ const form = document.querySelector("#formId");
 
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
-console.log(textAreaOne);
+
+let insightsData = {
+  will_organize_devtalk: true,
+  devtalk_topic: "I would ...",
+  something_special: "I am special!",
+};
 
 textAreaOne.addEventListener("click", () => {
   textAreaOne.textContent = "";
