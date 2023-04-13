@@ -12,31 +12,54 @@ const buttons = document.querySelectorAll(".navigation");
 let submit = false;
 
 let personalData = {
-  "token": "89nOpas|asdanjjh^&as",
-  "first_name": "gela",
-  "last_name": "gelashvili",
-  "email": "gelashvili@gela.ge",
-  "phone": "+995591933382",
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  skills: [],
+  work_preference: "",
+  had_covid: null,
+  had_covid_at: "",
+  vaccinated: null,
+  vaccinated_at: "",
+  will_organize_devtalk: null,
+  devtalk_topic: "",
+  something_special: "",
+};
+
+const data = localStorage.getItem("personalData");
+if (data) {
+  personalData = JSON.parse(data);
+  console.log(personalData);
 }
 
-firstName.addEventListener("input", () => {
+firstName.addEventListener("input", (e) => {
+  personalData.first_name = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
   if (submit) {
     nameCheck();
   }
 });
-lastName.addEventListener("input", () => {
+
+lastName.addEventListener("input", (e) => {
+  personalData.last_name = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
   if (submit) {
     surnameCheck();
   }
 });
 
-email.addEventListener("input", () => {
+email.addEventListener("input", (e) => {
+  personalData.email = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
   if (submit) {
     emailCheck();
   }
 });
 
-phoneNumber.addEventListener("input", () => {
+phoneNumber.addEventListener("input", (e) => {
+  personalData.phone = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
   if (submit) {
     phoneNumCheck();
   }
