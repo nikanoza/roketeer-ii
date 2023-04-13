@@ -7,6 +7,38 @@ const vaccineDate = document.getElementById("vaccine-date");
 const covid = document.getElementById("covid-input")
 const vaccine = document.getElementById('vaccine-input')
 
+workOption.addEventListener("click", function(){
+  let selected = document.querySelector(
+    'input[name="work"]:checked');
+    if (selected) {
+        workOption.classList.remove("error");}
+                    else{
+                        workOption.classList.add("error");
+                      } 
+})
+
+covidOption.addEventListener("click", function(){
+  let selected = document.querySelector(
+  'input[name="covid"]:checked');
+  if (selected) {
+      covidOption.classList.remove("error");}
+                  else{
+                      covidOption.classList.add("error");
+                    } 
+ 
+})
+
+vaccinatedOption.addEventListener("click", function(){
+  let selected = document.querySelector(
+  'input[name="vaccine"]:checked');
+  if (selected) {
+      vaccinatedOption.classList.remove("error");}
+                  else{
+                      vaccinatedOption.classList.add("error");
+                    } 
+ 
+})
+
 navigation.addEventListener("click", function(){
     let selected = document.querySelector(
     'input[name="work"]:checked');
@@ -49,6 +81,7 @@ navigation.addEventListener("click", function(){
  yesCovid.addEventListener('change', () => {
   if (yesCovid.checked) {
     covidDate.style.display = 'block';
+    covidDate.classList.remove("error-date")
   } else {
     covidDate.style.display = 'none';
   }
@@ -74,6 +107,7 @@ navigation.addEventListener("click", function () {
 yesVaccine.addEventListener('change', () => {
   if (yesVaccine.checked) {
     vaccineDate.style.display = 'block';
+    vaccineDate.classList.remove("error-date")
   } else {
     vaccineDate.style.display = 'none';
   }
@@ -126,4 +160,5 @@ function getSelectedRadioButtonValue(radioButtons) {
   
   return null;
 }
+
 

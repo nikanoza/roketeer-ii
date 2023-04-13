@@ -1,17 +1,18 @@
 body {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     margin: 0;
     padding: 0;
     font-family: "Montserrat", sans-serif;
     overflow-y: hidden;
+  
   }
+
   .left {
-    overflow-y: auto;
+    overflow: auto;
+    height:calc()
   }
-  .right {
-    overflow-y: hidden;
-  }
+ 
   
   .left,
   .right {
