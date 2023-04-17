@@ -143,6 +143,20 @@ localStorage.setItem("formValues", JSON.stringify(formValues))
 
 
   console.log(formValues);
+
+  const url = "https://bootcamp-2022.devtest.ge/api/application";
+
+  const options = {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data),
+};
+
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 });
 
 function getSelectedRadioButtonValue(radioButtons) {
