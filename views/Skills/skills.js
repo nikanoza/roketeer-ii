@@ -45,6 +45,7 @@ function remove(id) {
   const skillIndex = info.skills.findIndex((skill) => skill.id === id);
   info.skills.splice(skillIndex, 1);
   displayItems();
+  localStorage.setItem("info", JSON.stringify(info));
 }
 
 function addSkill() {
@@ -82,9 +83,7 @@ function addSkill() {
       inputError.innerHTML = "";
       inputError.style.marginTop = "0"
       inputError.style.marginBottom ="0"
-      console.log(info);
-     info.skills = [...info.skills, {id: skillId, experience:inputValue}];
-      console.log(info);
+      info.skills = [...info.skills, {id: skillId, experience:inputValue}];
       localStorage.setItem("info",JSON.stringify(info))
       displayItems();
     }
@@ -115,4 +114,4 @@ function addSkill() {
       createSkillDiv.appendChild(createImg);
     }
   }
-  
+ 
