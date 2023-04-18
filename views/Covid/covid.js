@@ -7,6 +7,17 @@ const vaccineDate = document.getElementById("vaccine-date");
 const covid = document.getElementById("covid-input");
 const vaccine = document.getElementById("vaccine-input");
 
+const yesCovid = document.getElementById("covid_yes");
+const noCovid = document.getElementById("covid_no");
+const yesVaccine = document.getElementById("vaccine_yes");
+const noVaccine = document.getElementById("vaccine_no");
+
+const workRadioButtons = document.getElementsByName("work");
+const covidContactRadioButtons = document.getElementsByName("covid");
+const covidDateInput = document.getElementById("covid-input");
+const vaccinatedRadioButtons = document.getElementsByName("vaccine");
+const vaccineDateInput = document.getElementById("vaccine-input");
+
 workOption.addEventListener("click", function () {
   let selected = document.querySelector('input[name="work"]:checked');
   if (selected) {
@@ -61,11 +72,6 @@ navigation.addEventListener("click", function () {
   }
 });
 
-const yesCovid = document.getElementById("covid_yes");
-const noCovid = document.getElementById("covid_no");
-const yesVaccine = document.getElementById("vaccine_yes");
-const noVaccine = document.getElementById("vaccine_no");
-
 yesCovid.addEventListener("change", () => {
   if (yesCovid.checked) {
     covidDate.style.display = "block";
@@ -116,16 +122,10 @@ navigation.addEventListener("click", function () {
   }
 });
 
-const workRadioButtons = document.getElementsByName("work");
-const covidContactRadioButtons = document.getElementsByName("covid");
-const covidDateInput = document.getElementById("covid-input");
-const vaccinatedRadioButtons = document.getElementsByName("vaccine");
-const vaccineDateInput = document.getElementById("vaccine-input");
-
 navigation.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const formValues = {
+  const info = {
     work_preference: getSelectedRadioButtonValue(workRadioButtons),
     had_covid: getSelectedRadioButtonValue(covidContactRadioButtons),
     had_covid_at: covidDateInput.value,
@@ -133,30 +133,14 @@ navigation.addEventListener("click", (event) => {
     vaccinated_at: vaccineDateInput.value,
   };
 
-const data = localStorage.getItem("formValues")
+  const data = localStorage.getItem("formValues");
 
-if(data){
-  formValues = JSON.parse(data)
+  if (data) {
+    info = JSON.parse(data);
+  }
+  localStorage.setItem("formValues", JSON.stringify(info));
 
-}
-localStorage.setItem("formValues", JSON.stringify(formValues))
-
-
-  console.log(formValues);
-
-  const url = "https://bootcamp-2022.devtest.ge/api/application";
-
-  const options = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(data),
-};
-
-
-fetch(url, options)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
+  console.log(info);
 });
 
 function getSelectedRadioButtonValue(radioButtons) {
