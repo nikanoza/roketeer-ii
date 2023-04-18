@@ -12,32 +12,58 @@ const form = document.querySelector("#formId");
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
 
-let insightsData = {
-  will_organize_devtalk: true,
-  devtalk_topic: "I would ...",
-  something_special: "I am special!",
+let personalData = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  skills: [],
+  work_preference: "",
+  had_covid: null,
+  had_covid_at: "",
+  vaccinated: null,
+  vaccinated_at: "",
+  will_organize_devtalk: null,
+  devtalk_topic: "",
+  something_special: "",
 };
 
-textAreaOne.addEventListener("click", () => {
+const data = localStorage.getItem("personalData");
+if (data) {
+  personalData = JSON.parse(data);
+  console.log(personalData);
+}
+
+textAreaOne.addEventListener("click", (e) => {
   textAreaOne.textContent = "";
-});
-textAreaTwo.addEventListener("click", () => {
-  textAreaTwo.textContent = "";
+  personalData.devtalk_topic = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
 });
 
-yesRadioButton.addEventListener("change", () => {
+textAreaTwo.addEventListener("click", (e) => {
+  textAreaTwo.textContent = "";
+  personalData.something_special = e.target.value;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
+});
+
+yesRadioButton.addEventListener("change", (e) => {
   if (yesRadioButton.checked) {
     container.style.display = "block";
   } else {
-    container.style.display = "none";
+    personalData.devtalk_topic = e.target.checked;
   }
 });
 
-yesRadioButton.addEventListener("click", () => {
+yesRadioButton.addEventListener("click", (e) => {
   errorMsg.textContent = "";
+  personalData.devtalk_topic = e.target.checked;
+  localStorage.setItem("personalData", JSON.stringify(personalData));
 });
 
-noRadioButton.addEventListener("click", () => {
+noRadioButton.addEventListener("click", (e) => {
+  localStorage.setItem("personalData", JSON.stringify(personalData));
+  container.style.display = "none";
+
   errorMsg.textContent = "";
   container.style.display = "none";
 });
