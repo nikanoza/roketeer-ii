@@ -12,32 +12,58 @@ const form = document.querySelector("#formId");
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
 
-let insightsData = {
-  will_organize_devtalk: true,
-  devtalk_topic: "I would ...",
-  something_special: "I am special!",
+let info = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  skills: [],
+  work_preference: "",
+  had_covid: null,
+  had_covid_at: "",
+  vaccinated: null,
+  vaccinated_at: "",
+  will_organize_devtalk: null,
+  devtalk_topic: "",
+  something_special: "",
 };
 
-textAreaOne.addEventListener("click", () => {
+const data = localStorage.getItem("info");
+if (data) {
+  info = JSON.parse(data);
+  console.log(info);
+}
+
+textAreaOne.addEventListener("click", (e) => {
   textAreaOne.textContent = "";
-});
-textAreaTwo.addEventListener("click", () => {
-  textAreaTwo.textContent = "";
+  info.devtalk_topic = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
-yesRadioButton.addEventListener("change", () => {
+textAreaTwo.addEventListener("click", (e) => {
+  textAreaTwo.textContent = "";
+  info.something_special = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
+});
+
+yesRadioButton.addEventListener("change", (e) => {
   if (yesRadioButton.checked) {
     container.style.display = "block";
   } else {
-    container.style.display = "none";
+    info.devtalk_topic = e.target.checked;
   }
 });
 
-yesRadioButton.addEventListener("click", () => {
+yesRadioButton.addEventListener("click", (e) => {
   errorMsg.textContent = "";
+  info.devtalk_topic = e.target.checked;
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
-noRadioButton.addEventListener("click", () => {
+noRadioButton.addEventListener("click", (e) => {
+  localStorage.setItem("info", JSON.stringify(info));
+  container.style.display = "none";
+
   errorMsg.textContent = "";
   container.style.display = "none";
 });
