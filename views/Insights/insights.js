@@ -12,7 +12,7 @@ const form = document.querySelector("#formId");
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
 
-let personalData = {
+let info = {
   first_name: "",
   last_name: "",
   email: "",
@@ -28,40 +28,40 @@ let personalData = {
   something_special: "",
 };
 
-const data = localStorage.getItem("personalData");
+const data = localStorage.getItem("info");
 if (data) {
-  personalData = JSON.parse(data);
-  console.log(personalData);
+  info = JSON.parse(data);
+  console.log(info);
 }
 
 textAreaOne.addEventListener("click", (e) => {
   textAreaOne.textContent = "";
-  personalData.devtalk_topic = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.devtalk_topic = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
 textAreaTwo.addEventListener("click", (e) => {
   textAreaTwo.textContent = "";
-  personalData.something_special = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.something_special = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
 yesRadioButton.addEventListener("change", (e) => {
   if (yesRadioButton.checked) {
     container.style.display = "block";
   } else {
-    personalData.devtalk_topic = e.target.checked;
+    info.devtalk_topic = e.target.checked;
   }
 });
 
 yesRadioButton.addEventListener("click", (e) => {
   errorMsg.textContent = "";
-  personalData.devtalk_topic = e.target.checked;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.devtalk_topic = e.target.checked;
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
 noRadioButton.addEventListener("click", (e) => {
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  localStorage.setItem("info", JSON.stringify(info));
   container.style.display = "none";
 
   errorMsg.textContent = "";

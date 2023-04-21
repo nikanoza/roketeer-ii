@@ -11,7 +11,7 @@ const phoneNumber = document.querySelector("#phoneNumber");
 const buttons = document.querySelectorAll(".navigation");
 let submit = false;
 
-let personalData = {
+let info = {
   first_name: "",
   last_name: "",
   email: "",
@@ -27,39 +27,39 @@ let personalData = {
   something_special: "",
 };
 
-const data = localStorage.getItem("personalData");
+const data = localStorage.getItem("info");
 if (data) {
-  personalData = JSON.parse(data);
-  console.log(personalData);
+  info = JSON.parse(data);
+  console.log(info);
 }
 
 firstName.addEventListener("input", (e) => {
-  personalData.first_name = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.first_name = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
   if (submit) {
     nameCheck();
   }
 });
 
 lastName.addEventListener("input", (e) => {
-  personalData.last_name = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.last_name = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
   if (submit) {
     surnameCheck();
   }
 });
 
 email.addEventListener("input", (e) => {
-  personalData.email = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.email = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
   if (submit) {
     emailCheck();
   }
 });
 
 phoneNumber.addEventListener("input", (e) => {
-  personalData.phone = e.target.value;
-  localStorage.setItem("personalData", JSON.stringify(personalData));
+  info.phone = e.target.value;
+  localStorage.setItem("info", JSON.stringify(info));
   if (submit) {
     phoneNumCheck();
   }
