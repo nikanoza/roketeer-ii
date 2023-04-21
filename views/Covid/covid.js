@@ -18,13 +18,53 @@ const covidDateInput = document.getElementById("covid-input");
 const vaccinatedRadioButtons = document.getElementsByName("vaccine");
 const vaccineDateInput = document.getElementById("vaccine-input");
 
-workOption.addEventListener("click", function () {
+let info = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  skills: [],
+  work_preference: "",
+  had_covid: null,
+  had_covid_at: "",
+  vaccinated: null,
+  vaccinated_at: "",
+  will_organize_devtalk: null,
+  devtalk_topic: "",
+  something_special: "",
+};
+
+navigation.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const data = localStorage.getItem("info");
+
+  if (data) {
+    info = JSON.parse(data);
+  }
+  localStorage.setItem("info", JSON.stringify(info));
+
+  console.log(info);
+});
+
+function getSelectedRadioButtonValue(radioButtons) {
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      return radioButton.value;
+    }
+  }
+
+  return null;
+}
+
+workOption.addEventListener("click", function (e) {
   let selected = document.querySelector('input[name="work"]:checked');
   if (selected) {
     workOption.classList.remove("error");
   } else {
     workOption.classList.add("error");
   }
+  info.work_preference = getSelectedRadioButtonValue(workRadioButtons);
 });
 
 covidOption.addEventListener("click", function () {
@@ -34,6 +74,7 @@ covidOption.addEventListener("click", function () {
   } else {
     covidOption.classList.add("error");
   }
+  info.had_covid = getSelectedRadioButtonValue(covidContactRadioButtons);
 });
 
 vaccinatedOption.addEventListener("click", function () {
@@ -43,6 +84,7 @@ vaccinatedOption.addEventListener("click", function () {
   } else {
     vaccinatedOption.classList.add("error");
   }
+  info.vaccinated = getSelectedRadioButtonValue(vaccinatedRadioButtons);
 });
 
 navigation.addEventListener("click", function () {
@@ -122,33 +164,10 @@ navigation.addEventListener("click", function () {
   }
 });
 
-navigation.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const info = {
-    work_preference: getSelectedRadioButtonValue(workRadioButtons),
-    had_covid: getSelectedRadioButtonValue(covidContactRadioButtons),
-    had_covid_at: covidDateInput.value,
-    vaccinated: getSelectedRadioButtonValue(vaccinatedRadioButtons),
-    vaccinated_at: vaccineDateInput.value,
-  };
-
-  const data = localStorage.getItem("formValues");
-
-  if (data) {
-    info = JSON.parse(data);
-  }
-  localStorage.setItem("formValues", JSON.stringify(info));
-
-  console.log(info);
+covidDate.addEventListener("input", function () {
+  info.had_covid_at = covidDateInput.value;
 });
 
-function getSelectedRadioButtonValue(radioButtons) {
-  for (const radioButton of radioButtons) {
-    if (radioButton.checked) {
-      return radioButton.value;
-    }
-  }
-
-  return null;
-}
+vaccineDate.addEventListener("input", function () {
+  info.vaccinated_at = vaccineDateInput.value;
+});
