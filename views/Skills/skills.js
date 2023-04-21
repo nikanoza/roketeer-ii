@@ -3,8 +3,30 @@ const select = document.getElementById("skills");
 let skillError = document.getElementById("skillError");
 let inputError = document.getElementById("inputError");
 
-const userSkills = [];
 let skills = [];
+
+let info = {
+  token: "",
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  skills: [],
+  work_preference: "",
+  had_covid: null,
+  had_covid_at: "",
+  vaccinated: null,
+  vaccinated_at: "",
+  will_organize_devtalk: null,
+  devtalk_topic: "",
+  something_special: ""
+}
+
+const data = localStorage.getItem("info");
+
+if (data){
+  info = JSON.parse(data);
+}
 
 async function getSkills() {
   const response = await axios.get(
@@ -17,15 +39,18 @@ async function getSkills() {
   );
   select.innerHTML += options.join("Skills");
 }
+
 getSkills();
 function remove(id) {
-  const skillIndex = userSkills.findIndex((skill) => skill.id === id);
-  userSkills.splice(skillIndex, 1);
+  const skillIndex = info.skills.findIndex((skill) => skill.id === id);
+  info.skills.splice(skillIndex, 1);
   displayItems();
+  localStorage.setItem("info", JSON.stringify(info));
 }
+
 function addSkill() {
     const skillId = parseInt(select.options[select.selectedIndex].id);
-    const existingSkill = userSkills.find((skill) => skill.id === skillId);
+    const existingSkill = info.skills.find((skill) => skill.id === skillId);
     const input = document.getElementById("numberInput");
     const inputValue = input.value;
     if (existingSkill) {
@@ -58,19 +83,17 @@ function addSkill() {
       inputError.innerHTML = "";
       inputError.style.marginTop = "0"
       inputError.style.marginBottom ="0"
-      userSkills.push({
-        id: skillId,
-        experience: parseInt(inputValue),
-      });
+      info.skills = [...info.skills, {id: skillId, experience:inputValue}];
+      localStorage.setItem("info",JSON.stringify(info))
       displayItems();
     }
   }
   function displayItems() {
     skillsDiv.innerHTML = "";
   
-    for (let i = 0; i < userSkills.length; i++) {
-      const skillId = userSkills[i].id;
-      const skillExperience = userSkills[i].experience;
+    for (let i = 0; i < info.skills.length; i++) {
+      const skillId = info.skills[i].id;
+      const skillExperience = info.skills[i].experience;
   
       const skill = skills.find((skill) => skill.id === skillId);
   
@@ -91,3 +114,4 @@ function addSkill() {
       createSkillDiv.appendChild(createImg);
     }
   }
+ 
