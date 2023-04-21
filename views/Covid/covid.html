@@ -16,18 +16,18 @@
           <p class="question">How would you prefer to work?</p>
 
           <div>
-            <input type="radio" id="office" name="work" value="office" />
+            <input type="radio" id="office" name="work" value="from_office" />
             <label for="office">From Sairme Office</label>
           </div>
 
           <div>
-            <input type="radio" id="home" name="work" value="home" />
+            <input type="radio" id="home" name="work" value="from_home" />
             <label for="home">From Home</label>
           </div>
 
           <div>
             <input type="radio" id="hybrid" name="work" value="hybrid" />
-            <label for = "hybrid">Hybrid</label>
+            <label for="hybrid">Hybrid</label>
           </div>
           <span id="work-error"><i>* Required</i></span>
         </form>
@@ -36,18 +36,18 @@
           <p class="question">Did you contact covid 19? :(</p>
 
           <div>
-            <input type="radio" id="covid_yes" name="covid" value="yes"  />
+            <input type="radio" id="covid_yes" name="covid" value="true" />
             <label for="covid_yes">Yes</label>
           </div>
 
           <div>
-            <input type="radio" id="covid_no" name="covid" value="no"  />
+            <input type="radio" id="covid_no" name="covid" value="false" />
             <label for="covid_no">No</label>
           </div>
           <span id="work-error"><i>* Required</i></span>
         </form>
 
-        <div class="radio-button-wrapper" id="covid-date" >
+        <div class="radio-button-wrapper" id="covid-date">
           <p class="question">When?</p>
 
           <input type="date" placeholder="Date" id="covid-input" />
@@ -57,12 +57,12 @@
           <p class="question">Have you been vaccinated?</p>
 
           <div>
-            <input type="radio" id="vaccine_yes"  name="vaccine" value="yes" />
+            <input type="radio" id="vaccine_yes" name="vaccine" value="true" />
             <label for="vaccine_yes">Yes</label>
           </div>
 
           <div>
-            <input type="radio" id="vaccine_no" name="vaccine" value="no"  />
+            <input type="radio" id="vaccine_no" name="vaccine" value="false" />
             <label for="vaccine_no">No</label>
           </div>
           <span id="work-error"><i>* Required</i></span>
@@ -70,10 +70,10 @@
         <div clas="radio-button-wrapper" id="vaccine-date">
           <p class="question">When did you get your last covid vaccine?</p>
 
-          <input type="date" placeholder="Date"  id="vaccine-input"/>
+          <input type="date" placeholder="Date" id="vaccine-input" />
         </div>
       </div>
-  
+
       <div class="step-buttons">
         <a href="/views/Skills/skills.html">
           <img src="../../assets/previous.png" alt="Prev icon" />
@@ -85,7 +85,7 @@
         <div class="pages"></div>
         <div class="pages"></div>
 
-        <a id="button" >
+        <a id="button">
           <img src="../../assets/next.png" alt="Next icon" />
         </a>
       </div>
