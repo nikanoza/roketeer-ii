@@ -10,9 +10,10 @@ async function submitData() {
     delete info.vaccinated_at;
   }
 
-  if (!info.devtalk_topic) {
-    delete info.devtalk_topic;
-  }
+  info.will_organize_devtalk = true;
+  info.devtalk_topic = "true";
+  info.token = "0b42bbe9-eea4-4ea4-9a87-c60f2fb5218d";
+  console.log(info);
   const response = await fetch(
     "https://bootcamp-2022.devtest.ge/api/application",
     {
@@ -22,10 +23,11 @@ async function submitData() {
         accept: "application/json",
       },
       body: JSON.stringify(info),
+      // Authorization: `Bearer ${token}`,
     }
   );
+  console.log(response);
 
-  const data = await response.json();
   document.querySelector(".main").classList.add("hidde");
   document.querySelector(".thanks").classList.remove("hidde");
   setTimeout(function () {

@@ -35,32 +35,27 @@ if (data) {
 }
 
 textAreaOne.addEventListener("click", (e) => {
-  textAreaOne.textContent = "";
+  // textAreaOne.textContent = "";
   info.devtalk_topic = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
 textAreaTwo.addEventListener("click", (e) => {
-  textAreaTwo.textContent = "";
+  // textAreaTwo.textContent = "";
   info.something_special = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
-yesRadioButton.addEventListener("change", (e) => {
+yesRadioButton.addEventListener("input", (e) => {
   if (yesRadioButton.checked) {
     container.style.display = "block";
-  } else {
-    info.devtalk_topic = e.target.checked;
   }
-});
-
-yesRadioButton.addEventListener("click", (e) => {
   errorMsg.textContent = "";
   info.devtalk_topic = e.target.checked;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
-noRadioButton.addEventListener("click", (e) => {
+noRadioButton.addEventListener("input", (e) => {
   localStorage.setItem("info", JSON.stringify(info));
   container.style.display = "none";
 
