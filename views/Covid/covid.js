@@ -34,14 +34,14 @@ let info = {
   something_special: "",
 };
 
+const data = localStorage.getItem("info");
+
+if (data) {
+  info = JSON.parse(data);
+}
+
 navigation.addEventListener("click", (event) => {
   event.preventDefault();
-
-  const data = localStorage.getItem("info");
-
-  if (data) {
-    info = JSON.parse(data);
-  }
   localStorage.setItem("info", JSON.stringify(info));
 
   console.log(info);
@@ -57,7 +57,7 @@ function getSelectedRadioButtonValue(radioButtons) {
   return null;
 }
 
-workOption.addEventListener("click", function (e) {
+workOption.addEventListener("input", function (e) {
   let selected = document.querySelector('input[name="work"]:checked');
   if (selected) {
     workOption.classList.remove("error");
@@ -67,24 +67,26 @@ workOption.addEventListener("click", function (e) {
   info.work_preference = getSelectedRadioButtonValue(workRadioButtons);
 });
 
-covidOption.addEventListener("click", function () {
+covidOption.addEventListener("input", function () {
   let selected = document.querySelector('input[name="covid"]:checked');
   if (selected) {
     covidOption.classList.remove("error");
   } else {
     covidOption.classList.add("error");
   }
-  info.had_covid = getSelectedRadioButtonValue(covidContactRadioButtons);
+  info.had_covid =
+    getSelectedRadioButtonValue(covidContactRadioButtons) === "true";
 });
 
-vaccinatedOption.addEventListener("click", function () {
+vaccinatedOption.addEventListener("input", function () {
   let selected = document.querySelector('input[name="vaccine"]:checked');
   if (selected) {
     vaccinatedOption.classList.remove("error");
   } else {
     vaccinatedOption.classList.add("error");
   }
-  info.vaccinated = getSelectedRadioButtonValue(vaccinatedRadioButtons);
+  info.vaccinated =
+    getSelectedRadioButtonValue(vaccinatedRadioButtons) === "true";
 });
 
 navigation.addEventListener("click", function () {
@@ -170,4 +172,63 @@ covidDate.addEventListener("input", function () {
 
 vaccineDate.addEventListener("input", function () {
   info.vaccinated_at = vaccineDateInput.value;
+});
+
+// navigation.addEventListener("click", function () {
+//   let selectedWork = document.querySelector('input[name="work"]:checked');
+//   let selectedCovid = document.querySelector('input[name="covid"]:checked');
+//   let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
+
+//   if (
+//     selectedWork &&
+//     selectedCovid &&
+//     selectedVaccine &&
+//     covid.value &&
+//     vaccine.value
+//   ) {
+//     window.location.href = "../Insights/insights.html";
+//   } else if (selectedCovid === false && covid.value === null) {
+//     window.location.href = "../Insights/insights.html";
+//   } else if (selectedVaccine === false && vaccine.value === null) {
+//     window.location.href = "../Insights/insights.html";
+//   }
+// });
+
+navigation.addEventListener("click", function () {
+  let selectedWork = document.querySelector('input[name="work"]:checked');
+  let selectedCovid = document.querySelector('input[name="covid"]:checked');
+  let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
+  let isValid = false;
+
+  if (
+    selectedWork &&
+    selectedCovid &&
+    selectedVaccine &&
+    covid.value &&
+    vaccine.value
+  ) {
+    isValid = true;
+  }
+
+  if (isValid === true) {
+    window.location.href = "../Insights/insights.html";
+  }
+});
+
+navigation.addEventListener("click", function () {
+  let selectedCovid = document.querySelector('input[name="covid"]:checked');
+  let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
+  let isValid = false;
+
+  if (selectedCovid.value === true && !covid.value) {
+    if (selectedVaccine.value === true && !vaccine.value) {
+      isValid = false;
+    } else {
+      isValid = true;
+    }
+
+    if (isValid) {
+      window.location.href = "../Insights/insights.html";
+    }
+  }
 });
