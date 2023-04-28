@@ -11,6 +11,7 @@ const form = document.querySelector("#formId");
 
 const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
+const devtalkTopic = document.querySelector(".text-area-one");
 
 let info = {
   first_name: "",
@@ -34,31 +35,30 @@ if (data) {
   console.log(info);
 }
 
-textAreaOne.addEventListener("click", (e) => {
-  // textAreaOne.textContent = "";
+textAreaOne.addEventListener("input", (e) => {
   info.devtalk_topic = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
-textAreaTwo.addEventListener("click", (e) => {
-  // textAreaTwo.textContent = "";
+textAreaTwo.addEventListener("input", (e) => {
   info.something_special = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
-yesRadioButton.addEventListener("input", (e) => {
+yesRadioButton.addEventListener("change", (e) => {
   if (yesRadioButton.checked) {
     container.style.display = "block";
+  } else {
+    container.style.display = "none";
   }
   errorMsg.textContent = "";
   info.devtalk_topic = e.target.checked;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
-noRadioButton.addEventListener("input", (e) => {
+noRadioButton.addEventListener("change", (e) => {
   localStorage.setItem("info", JSON.stringify(info));
   container.style.display = "none";
-
   errorMsg.textContent = "";
   container.style.display = "none";
 });
@@ -91,7 +91,7 @@ nextButton.addEventListener("click", () => {
   if (yesRadioButton.checked && textOne && textTwo) {
     document.location.href = "../Submit/submit.html";
   }
-  if (noRadioButton.checked) {
+  if (textTwo && noRadioButton.checked) {
     document.location.href = "../Submit/submit.html";
   }
 });

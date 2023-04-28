@@ -174,39 +174,13 @@ vaccineDate.addEventListener("input", function () {
   info.vaccinated_at = vaccineDateInput.value;
 });
 
-// navigation.addEventListener("click", function () {
-//   let selectedWork = document.querySelector('input[name="work"]:checked');
-//   let selectedCovid = document.querySelector('input[name="covid"]:checked');
-//   let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
-
-//   if (
-//     selectedWork &&
-//     selectedCovid &&
-//     selectedVaccine &&
-//     covid.value &&
-//     vaccine.value
-//   ) {
-//     window.location.href = "../Insights/insights.html";
-//   } else if (selectedCovid === false && covid.value === null) {
-//     window.location.href = "../Insights/insights.html";
-//   } else if (selectedVaccine === false && vaccine.value === null) {
-//     window.location.href = "../Insights/insights.html";
-//   }
-// });
-
 navigation.addEventListener("click", function () {
   let selectedWork = document.querySelector('input[name="work"]:checked');
   let selectedCovid = document.querySelector('input[name="covid"]:checked');
   let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
   let isValid = false;
 
-  if (
-    selectedWork &&
-    selectedCovid &&
-    selectedVaccine &&
-    covid.value &&
-    vaccine.value
-  ) {
+  if (selectedWork && selectedCovid && selectedVaccine) {
     isValid = true;
   }
 
