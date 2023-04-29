@@ -150,3 +150,12 @@ form {
 #comentSectionTwo {
   resize: none;
 }
+
+.dots img {
+  cursor: pointer;
+}
+
+.container,
+.text-area-two {
+  margin-left: -3vw;
+}
