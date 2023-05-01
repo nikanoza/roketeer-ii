@@ -18,6 +18,7 @@ const covidDateInput = document.getElementById("covid-input");
 const vaccinatedRadioButtons = document.getElementsByName("vaccine");
 const vaccineDateInput = document.getElementById("vaccine-input");
 
+const insightsPage = document.getElementById("insights-page");
 let info = {
   first_name: "",
   last_name: "",
@@ -43,8 +44,11 @@ if (data) {
 navigation.addEventListener("click", (event) => {
   event.preventDefault();
   localStorage.setItem("info", JSON.stringify(info));
+});
 
-  console.log(info);
+insightsPage.addEventListener("click", (event) => {
+  event.preventDefault();
+  localStorage.setItem("info", JSON.stringify(info));
 });
 
 function getSelectedRadioButtonValue(radioButtons) {
@@ -98,6 +102,14 @@ navigation.addEventListener("click", function () {
   }
 });
 
+insightsPage.addEventListener("click", function () {
+  let selected = document.querySelector('input[name="work"]:checked');
+  if (selected) {
+    workOption.classList.remove("error");
+  } else {
+    workOption.classList.add("error");
+  }
+});
 navigation.addEventListener("click", function () {
   let selected = document.querySelector('input[name="covid"]:checked');
   if (selected) {
@@ -107,7 +119,24 @@ navigation.addEventListener("click", function () {
   }
 });
 
+insightsPage.addEventListener("click", function () {
+  let selected = document.querySelector('input[name="covid"]:checked');
+  if (selected) {
+    covidOption.classList.remove("error");
+  } else {
+    covidOption.classList.add("error");
+  }
+});
+
 navigation.addEventListener("click", function () {
+  let selected = document.querySelector('input[name="vaccine"]:checked');
+  if (selected) {
+    vaccinatedOption.classList.remove("error");
+  } else {
+    vaccinatedOption.classList.add("error");
+  }
+});
+insightsPage.addEventListener("click", function () {
   let selected = document.querySelector('input[name="vaccine"]:checked');
   if (selected) {
     vaccinatedOption.classList.remove("error");
@@ -140,6 +169,13 @@ navigation.addEventListener("click", function () {
     covidDate.classList.add("error-date");
   }
 });
+insightsPage.addEventListener("click", function () {
+  if (covid.value) {
+    covidDate.classList.remove("error-date");
+  } else {
+    covidDate.classList.add("error-date");
+  }
+});
 
 yesVaccine.addEventListener("change", () => {
   if (yesVaccine.checked) {
@@ -166,12 +202,35 @@ navigation.addEventListener("click", function () {
   }
 });
 
+insightsPage.addEventListener("click", function () {
+  if (vaccine.value) {
+    vaccineDate.classList.remove("error-date");
+  } else {
+    vaccineDate.classList.add("error-date");
+  }
+});
+
 covidDate.addEventListener("input", function () {
   info.had_covid_at = covidDateInput.value;
 });
 
 vaccineDate.addEventListener("input", function () {
   info.vaccinated_at = vaccineDateInput.value;
+});
+
+insightsPage.addEventListener("click", function () {
+  let selectedWork = document.querySelector('input[name="work"]:checked');
+  let selectedCovid = document.querySelector('input[name="covid"]:checked');
+  let selectedVaccine = document.querySelector('input[name="vaccine"]:checked');
+  let isValid = false;
+
+  if (selectedWork && selectedCovid && selectedVaccine) {
+    isValid = true;
+  }
+
+  if (isValid === true) {
+    window.location.href = "../Insights/insights.html";
+  }
 });
 
 navigation.addEventListener("click", function () {

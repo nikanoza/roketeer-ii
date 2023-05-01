@@ -23,7 +23,6 @@ async function submitData() {
         accept: "application/json",
       },
       body: JSON.stringify(info),
-      // Authorization: `Bearer ${token}`,
     }
   );
   console.log(response);

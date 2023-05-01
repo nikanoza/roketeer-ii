@@ -4,6 +4,7 @@ let skillError = document.getElementById("skillError");
 let inputError = document.getElementById("inputError");
 const navigation = document.getElementById("next");
 const numberInput = document.getElementById("numberInput");
+const covidPage = document.getElementById("covid-page");
 let skills = [];
 
 let info = {
@@ -57,10 +58,12 @@ function addSkill() {
   if (existingSkill) {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
     skillError.innerHTML = "Please select another skill";
   } else if (select.value == "") {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
     skillError.innerHTML = "Please select skill";
   } else {
     skillError.innerHTML = "";
@@ -120,13 +123,15 @@ navigation.addEventListener("click", function () {
   if (select.value == "") {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
-    skillError.innerHTML = "Please select skill";
+    skillError.style.fontStyle = "italic";
+    skillError.innerHTML = "*Please select skill";
   } else {
     skillError.innerHTML = "";
   }
   if (numberInput.value == "") {
     inputError.style.marginTop = "-22px";
     inputError.style.marginBottom = "15px";
+    inputError.style.fontStyle = "italic";
     inputError.innerHTML = "Required";
   } else {
     inputError.innerHTML = "";
@@ -135,7 +140,33 @@ navigation.addEventListener("click", function () {
   }
 });
 
-navigation.addEventListener("click", function () {
+navigation.addEventListener("click", () => {
+  if (select.value != "" && numberInput.value != "") {
+    window.location.href = "../Covid/covid.html";
+  }
+});
+covidPage.addEventListener("click", function () {
+  if (select.value == "") {
+    skillError.style.marginTop = "-22px";
+    skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
+    skillError.innerHTML = "*Please select skill";
+  } else {
+    skillError.innerHTML = "";
+  }
+  if (numberInput.value == "") {
+    inputError.style.marginTop = "-22px";
+    inputError.style.marginBottom = "15px";
+    inputError.style.fontStyle = "italic";
+    inputError.innerHTML = "Required";
+  } else {
+    inputError.innerHTML = "";
+    inputError.style.marginTop = "0";
+    inputError.style.marginBottom = "0";
+  }
+});
+
+covidPage.addEventListener("click", () => {
   if (select.value != "" && numberInput.value != "") {
     window.location.href = "../Covid/covid.html";
   }

@@ -149,6 +149,7 @@ form {
 #comentSectionOne,
 #comentSectionTwo {
   resize: none;
+  padding: 10px;
 }
 
 .dots img {

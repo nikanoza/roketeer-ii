@@ -13,6 +13,7 @@ const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
 const devtalkTopic = document.querySelector(".text-area-one");
 
+const submitPage = document.getElementById("submit-page");
 let info = {
   first_name: "",
   last_name: "",
@@ -111,3 +112,15 @@ function textTwoCheck() {
   }
   return true;
 }
+
+submitPage.addEventListener("click", function () {
+  const textOne = textOneCheck();
+  const textTwo = textTwoCheck();
+
+  if (yesRadioButton.checked && textOne && textTwo) {
+    document.location.href = "../Submit/submit.html";
+  }
+  if (textTwo && noRadioButton.checked) {
+    document.location.href = "../Submit/submit.html";
+  }
+});

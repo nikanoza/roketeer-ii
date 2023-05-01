@@ -8,6 +8,8 @@ const lastName = document.querySelector("#lastName");
 const email = document.querySelector("#email");
 const phoneNumber = document.querySelector("#phoneNumber");
 
+const nextPage = document.getElementById("next");
+const skillsPage = document.getElementById("skills-page");
 const buttons = document.querySelectorAll(".navigation");
 let submit = false;
 
@@ -40,7 +42,9 @@ firstName.addEventListener("input", (e) => {
     nameCheck();
   }
 });
-
+if (info.first_name) {
+  firstName.value = info.first_name;
+}
 lastName.addEventListener("input", (e) => {
   info.last_name = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
@@ -48,6 +52,10 @@ lastName.addEventListener("input", (e) => {
     surnameCheck();
   }
 });
+
+if (info.last_name) {
+  lastName.value = info.last_name;
+}
 
 email.addEventListener("input", (e) => {
   info.email = e.target.value;
@@ -57,6 +65,10 @@ email.addEventListener("input", (e) => {
   }
 });
 
+if (info.email) {
+  email.value = info.email;
+}
+
 phoneNumber.addEventListener("input", (e) => {
   info.phone = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
@@ -65,6 +77,9 @@ phoneNumber.addEventListener("input", (e) => {
   }
 });
 
+if (info.phone) {
+  phoneNumber.value = info.phone;
+}
 const nameCheck = () => {
   if (firstName.value.trim() === "") {
     errorName.textContent = "* First name is required";
@@ -128,17 +143,28 @@ const phoneNumCheck = () => {
   return true;
 };
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (!submit) {
-      submit = true;
-    }
-    const name = nameCheck();
-    const surname = surnameCheck();
-    const email = emailCheck();
-    const phoneNumber = phoneNumCheck();
-    if (name && surname && email && phoneNumber) {
-      document.location.href = "../Skills/skills.html";
-    }
-  });
+nextPage.addEventListener("click", () => {
+  if (!submit) {
+    submit = true;
+  }
+  const name = nameCheck();
+  const surname = surnameCheck();
+  const email = emailCheck();
+  const phoneNumber = phoneNumCheck();
+  if (name && surname && email && phoneNumber) {
+    document.location.href = "../Skills/skills.html";
+  }
+});
+
+skillsPage.addEventListener("click", () => {
+  if (!submit) {
+    submit = true;
+  }
+  const name = nameCheck();
+  const surname = surnameCheck();
+  const email = emailCheck();
+  const phoneNumber = phoneNumCheck();
+  if (name && surname && email && phoneNumber) {
+    document.location.href = "../Skills/skills.html";
+  }
 });
