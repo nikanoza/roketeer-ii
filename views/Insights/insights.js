@@ -98,7 +98,7 @@ nextButton.addEventListener("click", () => {
 });
 
 function textOneCheck() {
-  if (textAreaOne === "") {
+  if (textAreaOne.value === "") {
     errorTextAreaOne.textContent = "Please express yout thoughts";
     return false;
   }
@@ -106,7 +106,7 @@ function textOneCheck() {
 }
 
 function textTwoCheck() {
-  if (textAreaTwo === "") {
+  if (textAreaTwo.value === "") {
     errorTextAreaTwo.textContent = "Please express yout thoughts";
     return false;
   }

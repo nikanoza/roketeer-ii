@@ -26,6 +26,7 @@ async function submitData() {
     }
   );
   console.log(response);
+  localStorage.clear();
 
   document.querySelector(".main").classList.add("hidde");
   document.querySelector(".thanks").classList.remove("hidde");
