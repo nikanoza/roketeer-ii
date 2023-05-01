@@ -71,6 +71,10 @@ workOption.addEventListener("input", function (e) {
   info.work_preference = getSelectedRadioButtonValue(workRadioButtons);
 });
 
+if (info.work_preference) {
+  workOption.value = info.work_preference;
+}
+
 covidOption.addEventListener("input", function () {
   let selected = document.querySelector('input[name="covid"]:checked');
   if (selected) {
@@ -265,3 +269,32 @@ navigation.addEventListener("click", function () {
     }
   }
 });
+
+function loadData() {
+  const data = localStorage.getItem("info");
+  if (data) {
+    info = JSON.parse(data);
+    const selectedValue = info.work_preference || "";
+    const radioButtons = document.getElementsByName("work");
+    for (let i = 0; i < radioButtons.length; i++) {
+      if (radioButtons[i].value === selectedValue) {
+        radioButtons[i].checked = true;
+      }
+    }
+
+    covid.value = info.had_covid_at || "";
+    vaccine.value = info.vaccinated_at || "";
+    if (info.had_covid) {
+      yesCovid.checked = true;
+    } else if (info.had_covid === false) {
+      noCovid.checked = true;
+    }
+    if (info.vaccinated) {
+      yesVaccine.checked = true;
+    } else if (info.vaccinated === false) {
+      noVaccine.checked = true;
+    }
+  }
+}
+
+loadData();

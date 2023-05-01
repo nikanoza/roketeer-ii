@@ -40,6 +40,12 @@ async function getSkills() {
       `<option id="${skills.id}" "${skills.title}"value="${skills.title}">${skills.title}</option>`
   );
   select.innerHTML += options.join("Skills");
+  if (info.skills.length > 0) {
+    displayItems();
+    select.value = info.skills[0].id.toString();
+
+    numberInput.value = info.skills[0].experience;
+  }
 }
 
 getSkills();
@@ -82,10 +88,18 @@ function addSkill() {
     localStorage.setItem("info", JSON.stringify(info));
     displayItems();
   }
+  if (!existingSkill && !(select.value === "") && input.value > 0) {
+    localStorage.setItem("info", JSON.stringify(info));
+    displayItems();
+  }
 }
 function displayItems() {
   skillsDiv.innerHTML = "";
 
+  if (info.skills.length > 0) {
+    skillsDiv.innerHTML = "";
+    for (let i = 0; i < info.skills.length; i++) {}
+  }
   for (let i = 0; i < info.skills.length; i++) {
     const skillId = info.skills[i].id;
     const skillExperience = info.skills[i].experience;

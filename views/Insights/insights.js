@@ -13,6 +13,7 @@ const textAreaOne = document.querySelector("#comentSectionOne");
 const textAreaTwo = document.querySelector("#comentSectionTwo");
 const devtalkTopic = document.querySelector(".text-area-one");
 
+const firstQuestion = document.querySelector(".radio-form");
 const submitPage = document.getElementById("submit-page");
 let info = {
   first_name: "",
@@ -40,11 +41,18 @@ textAreaOne.addEventListener("input", (e) => {
   info.devtalk_topic = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
-
+if (info.devtalk_topic) {
+  textAreaOne.value = info.devtalk_topic;
+  container.style.display = "block";
+}
 textAreaTwo.addEventListener("input", (e) => {
   info.something_special = e.target.value;
   localStorage.setItem("info", JSON.stringify(info));
 });
+
+if (info.something_special) {
+  textAreaTwo.value = info.something_special;
+}
 
 yesRadioButton.addEventListener("change", (e) => {
   if (yesRadioButton.checked) {
@@ -52,8 +60,10 @@ yesRadioButton.addEventListener("change", (e) => {
   } else {
     container.style.display = "none";
   }
+
   errorMsg.textContent = "";
   info.devtalk_topic = e.target.checked;
+  info.will_organize_devtalk = true;
   localStorage.setItem("info", JSON.stringify(info));
 });
 
@@ -62,44 +72,33 @@ noRadioButton.addEventListener("change", (e) => {
   container.style.display = "none";
   errorMsg.textContent = "";
   container.style.display = "none";
+  info.will_organize_devtalk = false;
 });
 
-function validateForm(event) {
-  event.preventDefault();
-  console.log(form.yesRadioButton.checked);
-  console.log(form.noRadioButton.checked);
-  const radios = document.getElementsByName("will_organize_devtalk");
-  let checked = false;
-
-  for (const radio of radios) {
-    if (radio.checked) {
-      checked = true;
-      break;
-    }
-  }
-  if (!checked) {
-    errorMsg.textContent = "Please select an option";
-    return false;
-  }
-
-  return true;
+if (info.will_organize_devtalk !== null) {
+  yesRadioButton.checked = info.will_organize_devtalk;
+  noRadioButton.checked = !info.will_organize_devtalk;
 }
 
 nextButton.addEventListener("click", () => {
   const textOne = textOneCheck();
   const textTwo = textTwoCheck();
-
+  if (!yesRadioButton.checked && !noRadioButton.checked) {
+    errorMsg.textContent = "*Please select an option";
+    return;
+  }
   if (yesRadioButton.checked && textOne && textTwo) {
     document.location.href = "../Submit/submit.html";
   }
+
   if (textTwo && noRadioButton.checked) {
     document.location.href = "../Submit/submit.html";
   }
 });
 
 function textOneCheck() {
-  if (textAreaOne.value === "") {
-    errorTextAreaOne.textContent = "Please express yout thoughts";
+  if (yesRadioButton.checked && textAreaOne.value === "") {
+    errorTextAreaOne.textContent = "*Please express your thoughts";
     return false;
   }
   return true;
@@ -107,7 +106,7 @@ function textOneCheck() {
 
 function textTwoCheck() {
   if (textAreaTwo.value === "") {
-    errorTextAreaTwo.textContent = "Please express yout thoughts";
+    errorTextAreaTwo.textContent = "*Please express your thoughts";
     return false;
   }
   return true;
