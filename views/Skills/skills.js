@@ -36,14 +36,19 @@ async function getSkills() {
   );
   skills = response.data;
   const options = skills.map(
-    (skills) =>
-      `<option id="${skills.id}" "${skills.title}"value="${skills.title}">${skills.title}</option>`
+    (skill) =>
+      `<option id="${skill.id}" "${skill.title}" value="${skill.title}">${skill.title}</option>`
   );
-  select.innerHTML += options.join("Skills");
+  select.innerHTML += options.join("");
   if (info.skills.length > 0) {
     displayItems();
-    select.value = info.skills[0].id.toString();
-
+    const selectedSkillId = info.skills[0].id.toString();
+    const selectedSkillOption = document.querySelector(
+      `#skills option[id='${selectedSkillId}']`
+    );
+    if (selectedSkillOption) {
+      selectedSkillOption.setAttribute("selected", "");
+    }
     numberInput.value = info.skills[0].experience;
   }
 }
