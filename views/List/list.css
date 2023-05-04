@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rowdies:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100wv;
+  height: 100vh;
+  background-color: #0c0d0e;
+  font-size: 18px;
+
+  /* font-family: 'Montserrat', sans-serif;
+font-family: 'Rowdies', cursive; */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Rowdies", cursive;
+  font-size: 56px;
+  color: #fff;
+  margin-top: 95px;
+}
+
+.form {
+  height: 52px;
+  width: 1154px;
+  background-color: #fe3b1f;
+}
+
+svg {
+  background-image: none;
+}
+
+p {
+  font-size: 24px;
+  padding: 12px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.application {
+  /* display: none; */
+  width: 1154px;
+  height: auto;
+  background-color: #fff;
+  padding: 100px;
+}
+
+.section-one,
+.section-two {
+  margin-top: 32px;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.skilset{
+    padding-left: 72px;
+}
+
+.covid-situation,
+.insights {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.insights {
+  padding-left: 120px;
+
+}
+
+.name,
+.last-name,
+.email,
+.phone,
+.skils {
+  display: flex;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  color: #fe3b1f;
+  text-decoration: underline;
+}
+
+.wrap-p {
+  width: 80%;
+}
+
+.preference,
+.insights{
+    margin-top: 85px;
+}
+
+.question{
+    margin-top: 50px;
+}
+
+
+
