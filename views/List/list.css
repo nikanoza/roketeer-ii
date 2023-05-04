@@ -9,7 +9,7 @@
 body {
   width: 100wv;
   height: 100vh;
-  background-color: #0c0d0e;
+  /* background-color: #0c0d0e; */
   font-size: 18px;
 
   /* font-family: 'Montserrat', sans-serif;
@@ -86,6 +86,7 @@ p {
 .last-name,
 .email,
 .phone,
+.phone-number,
 .skils {
   display: flex;
 }
