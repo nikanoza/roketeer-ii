@@ -26,7 +26,6 @@ const getSklills = async () => {
 getSklills();
 
 
-
 const getData = async () => {
     try {
         const response = await axios.get("https://bootcamp-2022.devtest.ge/api/applications?token=0b42bbe9-eea4-4ea4-9a87-c60f2fb5218d");
@@ -39,8 +38,8 @@ const getData = async () => {
               
                 let newEl = skillsArr.find((el)=> {
                     return val.id === el.id
-                    
                 })
+                
                 sliksData += `<div class="skils">
                 <p>${newEl.title}</p>
                 <p>years of experience:</p> 
@@ -73,18 +72,19 @@ const getData = async () => {
                             <p>${value.last_name}</p>
                         </div>
                         <div class="email">
-                            <P>E Mail</P>
-                            <P>${value.email}</P>
+                            <p>E Mail</p>
+                            <p>${value.email}</p>
                         </div>
                         <div class="phone-number">
-                            <P>Phone</P>
-                            <P>${value.phone}</P>
+                            <p>Phone</p>
+                            <p>${value.phone}</p>
                         </div>
                         
                     </div>
                     <div class="skilset">
                         <h2>Skillset</h2>
                         ${sliksData}
+                        
                     </div>
                 </div>
                 <div class="section-two">
@@ -92,17 +92,17 @@ const getData = async () => {
                   <div class="preference">
                     <form class="radio-button-wrapper" id="work">
                           <h2>Covid Situation</h2>
-                        <p class="question">How would you prefer to work?</p>
+                        <p class="question">How would you prefer to work?
                         <div>
-                          <input type="radio" id="office" name="work" value="from_office" />
+                          <input type="radio" id="office" name="work" value="from_office" disabled ${value.work_preference === "from_office" ? "checked" : ""} />
                           <label for="office">From Sairme Office</label>
                         </div>
                         <div>
-                          <input type="radio" id="home" name="work" value="from_home" />
+                          <input type="radio" id="home" name="work" value="from_home" disabled ${value.work_preference === "from_home" ? "checked" : ""}/>
                           <label for="home">From Home</label>
                         </div>
                         <div>
-                          <input type="radio" id="hybrid" name="work" value="hybrid" />
+                          <input type="radio" id="hybrid" name="work" value="hybrid"disabled ${value.work_preference === "hybrid" ? "checked" : ""}/>
                           <label for="hybrid">Hybrid</label>
                         </div>
                       </form>
@@ -110,88 +110,67 @@ const getData = async () => {
                   <form class="radio-button-wrapper" id="covid-contact">
                     <p class="question">Did you have covid 19? </p>
                     <div>
-                      <input type="radio" id="covid_yes" name="covid" value="true" />
+                      <input type="radio" id="covid_yes" name="covid" value="true" disabled ${value.had_covid ? "checked" : ""} />
                       <label for="covid_yes">Yes</label>
                     </div>
                     <div>
-                      <input type="radio" id="covid_no" name="covid" value="false" />
+                      <input type="radio" id="covid_no" name="covid" value="false" disabled ${!value.had_covid ? "checked" : ""} />
                       <label for="covid_no">No</label>
                     </div>
                   </form>
             <div class="radio-button-wrapper" id="covid-date">
                 <p class="question">When did you have covid?</p>
-                <input type="date" placeholder="Date" id="covid-input" />
+                <div class="covid-date"><p>${value.had_covid_at}</p></div>
             </div>
             <form class="radio-button-wrapper" id="vaccinated">
                 <p class="question">Have you been vaccinated?</p>
                 <div>
-                  <input type="radio" id="vaccine_yes" name="vaccine" value="true" />
+                  <input type="radio" id="vaccine_yes" name="vaccine" value="true" disabled ${value.vaccinated ? "checked" : ""}/>
                   <label for="vaccine_yes">Yes</label>
                 </div>
                 <div>
-                  <input type="radio" id="vaccine_no" name="vaccine" value="false" />
+                  <input type="radio" id="vaccine_no" name="vaccine" value="false" disabled ${!value.vaccinated ? "checked" : ""}/>
                   <label for="vaccine_no">No</label>
                 </div>
               </form>
               <div clas="radio-button-wrapper" id="vaccine-date">
                 <p class="question">When did you get your last covid vaccine?</p>
-                <input type="date" placeholder="Date" id="vaccine-input" />
+                <div class="covid-date"><p>${value.vaccinated_at}</p></div>
               </div>
              </div>
+
              <div class="insights">
                 <div class="radio-form">
                     <h2>Insigts</h2>
               <p class="wrap-p">Would you attend Devtalks and maybe also organize your own?</p>
               <input
                 type="radio"
-                name="will_organize_devtalk"
                 id="yesRadioButton"
-                value="yes"
-              />
-              <label for="yesRadioButton">Yes</label><br />
+                name="will_organize_devtalk"
+                value="true" 
+                ${value.will_organize_devtalk ? "checked" : ""}/>
+              <label for="yesRadioButton">Yes</label><br/>
+
               <input
                 type="radio"
                 name="will_organize_devtalk"
                 id="noRadioButton"
-                value="no"
+                value="false"
+                checked
+                ${!value.will_organize_devtalk  ? "checked" : ""} 
               />
               <label for="noRadioButton">No</label><br />
-              <p class="error" id="error-msg"></p>
+
             </div>
-            <div class="container" id="container" style="display: none">
-                <div class="text-area-one">
-                  <p>What would you speak about at Devtalk?</p>
-                  <textarea
-                  name="text-area-two"
-                  id="comentSectionTwo"
-                  cols="65"
-                  rows="8"
-                  placeholder="I..."
-                ></textarea>
-                  <p class="text-area-one-error"></p>
+            <div>
+                <div>
+                <p>What would you speak about at Devtalk?</p>
+                  <div class="text-area"><p>${value.devtalk_topic}</p></div>
                 </div>
               </div>
-              <div class="text-area-two">
-                <p>What would you speak about at Devtalk?</p>
-                <textarea
-                  name="text-area-two"
-                  id="comentSectionTwo"
-                  cols="50"
-                  rows="8"
-                  placeholder="I..."
-                ></textarea>
-                <p class="text-area-two-error"></p>
-              </div>
-              <div class="text-area-two">
+              <div>
                 <p>Tell us something special</p>
-                <textarea
-                  name="text-area-two"
-                  id="comentSectionTwo"
-                  cols="50"
-                  rows="8"
-                  placeholder="I..."
-                ></textarea>
-                <p class="text-area-two-error"></p>
+                <div class="text-area"><p>${value.something_special}</p></div>
               </div>
              </div>
             </div>
@@ -200,7 +179,8 @@ const getData = async () => {
         })
         document.querySelector(".main-container").innerHTML=mainData;
 
-        console.log(response.data);
+        console.log(response.data)
+
     } catch (error) {
         
     }

@@ -9,7 +9,7 @@
 body {
   width: 100wv;
   height: 100vh;
-  /* background-color: #0c0d0e; */
+  background-color: #0c0d0e;
   font-size: 18px;
 
   /* font-family: 'Montserrat', sans-serif;
@@ -63,23 +63,21 @@ p {
 .section-two {
   margin-top: 32px;
   display: flex;
-  /* justify-content: space-between; */
 }
 
-.skilset{
+/* .skilset{
     padding-left: 72px;
-}
+} */
 
 .covid-situation,
 .insights {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .insights {
   padding-left: 120px;
-
+gap: 100px;
 }
 
 .name,
@@ -90,6 +88,8 @@ p {
 .skils {
   display: flex;
 }
+
+
 
 h2 {
   font-size: 18px;
@@ -112,4 +112,22 @@ h2 {
 }
 
 
+
+.covid-date{
+    width: 270px;
+    height: 45px;
+    border: 1px solid #000;
+}
+
+.covid-date p{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.text-area{
+    width: 390px;
+    height: 45px;
+    border: 1px solid #000;
+}
 
