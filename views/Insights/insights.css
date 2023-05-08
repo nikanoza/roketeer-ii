@@ -149,6 +149,7 @@ form {
 #comentSectionOne,
 #comentSectionTwo {
   resize: none;
+  padding: 10px;
 }
 
 .dots img {
@@ -158,4 +159,12 @@ form {
 .container,
 .text-area-two {
   margin-left: -3vw;
+}
+
+.text-area-two-error,
+.text-area-one-error {
+  color: hsla(8, 99%, 56%, 1);
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 10px;
 }

@@ -164,3 +164,12 @@ label,
 input {
   cursor: pointer;
 }
+
+.step-buttons a:nth-child(1) {
+  margin-top: 22px;
+}
+
+.step-buttons a:nth-child(7) {
+  margin-top: 22px;
+  margin-left: 20px;
+}

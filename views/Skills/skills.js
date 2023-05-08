@@ -4,6 +4,7 @@ let skillError = document.getElementById("skillError");
 let inputError = document.getElementById("inputError");
 const navigation = document.getElementById("next");
 const numberInput = document.getElementById("numberInput");
+const covidPage = document.getElementById("covid-page");
 let skills = [];
 
 let info = {
@@ -35,10 +36,21 @@ async function getSkills() {
   );
   skills = response.data;
   const options = skills.map(
-    (skills) =>
-      `<option id="${skills.id}" "${skills.title}"value="${skills.title}">${skills.title}</option>`
+    (skill) =>
+      `<option id="${skill.id}" "${skill.title}" value="${skill.title}">${skill.title}</option>`
   );
-  select.innerHTML += options.join("Skills");
+  select.innerHTML += options.join("");
+  if (info.skills.length > 0) {
+    displayItems();
+    const selectedSkillId = info.skills[0].id.toString();
+    const selectedSkillOption = document.querySelector(
+      `#skills option[id='${selectedSkillId}']`
+    );
+    if (selectedSkillOption) {
+      selectedSkillOption.setAttribute("selected", "");
+    }
+    numberInput.value = info.skills[0].experience;
+  }
 }
 
 getSkills();
@@ -57,10 +69,12 @@ function addSkill() {
   if (existingSkill) {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
     skillError.innerHTML = "Please select another skill";
   } else if (select.value == "") {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
     skillError.innerHTML = "Please select skill";
   } else {
     skillError.innerHTML = "";
@@ -79,10 +93,18 @@ function addSkill() {
     localStorage.setItem("info", JSON.stringify(info));
     displayItems();
   }
+  if (!existingSkill && !(select.value === "") && input.value > 0) {
+    localStorage.setItem("info", JSON.stringify(info));
+    displayItems();
+  }
 }
 function displayItems() {
   skillsDiv.innerHTML = "";
 
+  if (info.skills.length > 0) {
+    skillsDiv.innerHTML = "";
+    for (let i = 0; i < info.skills.length; i++) {}
+  }
   for (let i = 0; i < info.skills.length; i++) {
     const skillId = info.skills[i].id;
     const skillExperience = info.skills[i].experience;
@@ -120,13 +142,15 @@ navigation.addEventListener("click", function () {
   if (select.value == "") {
     skillError.style.marginTop = "-22px";
     skillError.style.marginBottom = "15px";
-    skillError.innerHTML = "Please select skill";
+    skillError.style.fontStyle = "italic";
+    skillError.innerHTML = "*Please select skill";
   } else {
     skillError.innerHTML = "";
   }
   if (numberInput.value == "") {
     inputError.style.marginTop = "-22px";
     inputError.style.marginBottom = "15px";
+    inputError.style.fontStyle = "italic";
     inputError.innerHTML = "Required";
   } else {
     inputError.innerHTML = "";
@@ -135,7 +159,33 @@ navigation.addEventListener("click", function () {
   }
 });
 
-navigation.addEventListener("click", function () {
+navigation.addEventListener("click", () => {
+  if (select.value != "" && numberInput.value != "") {
+    window.location.href = "../Covid/covid.html";
+  }
+});
+covidPage.addEventListener("click", function () {
+  if (select.value == "") {
+    skillError.style.marginTop = "-22px";
+    skillError.style.marginBottom = "15px";
+    skillError.style.fontStyle = "italic";
+    skillError.innerHTML = "*Please select skill";
+  } else {
+    skillError.innerHTML = "";
+  }
+  if (numberInput.value == "") {
+    inputError.style.marginTop = "-22px";
+    inputError.style.marginBottom = "15px";
+    inputError.style.fontStyle = "italic";
+    inputError.innerHTML = "Required";
+  } else {
+    inputError.innerHTML = "";
+    inputError.style.marginTop = "0";
+    inputError.style.marginBottom = "0";
+  }
+});
+
+covidPage.addEventListener("click", () => {
   if (select.value != "" && numberInput.value != "") {
     window.location.href = "../Covid/covid.html";
   }

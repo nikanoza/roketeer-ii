@@ -23,10 +23,10 @@ async function submitData() {
         accept: "application/json",
       },
       body: JSON.stringify(info),
-      // Authorization: `Bearer ${token}`,
     }
   );
   console.log(response);
+  localStorage.clear();
 
   document.querySelector(".main").classList.add("hidde");
   document.querySelector(".thanks").classList.remove("hidde");
